@@ -5,7 +5,9 @@ This repository contains code snippets and instructions for analyzing a dataset 
 The dataset used in this analysis is the raw.data dataset obtained from the Clinspacy library. It contains medical transcriptions with the following columns:
 
 note_id: Unique identifier for each note
+
 description: Description of the note
+
 medical_specialty: Medical specialty associated with the note
 sample_name: Sample name of the note
 transcription: Transcription text of the note

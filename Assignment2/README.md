@@ -9,29 +9,35 @@ note_id: Unique identifier for each note
 description: Description of the note
 
 medical_specialty: Medical specialty associated with the note
+
 sample_name: Sample name of the note
+
 transcription: Transcription text of the note
+
 keywords: Keywords associated with the note
-Description of Dataset
+
+### Description of Dataset
 To get a sense of the data contained in the dataset, the glimpse function from the dplyr package is used. It provides an overview of the dataset, including the number of rows and columns, and the data types of each column.
 
-## Medical Specialties
+## Medical Specialties and Filtering
 The dataset contains notes from various medical specialties. To determine the number of unique medical specialties featured in the notes, the n_distinct function from dplyr is used.
-
-## Filtering Specialties
 In this analysis, we filter the dataset to focus on three specific medical specialties: Orthopedic, Radiology, and Surgery. These specialties are selected using the filter function from dplyr.
 
 ## Text Processing
 The next step involves preprocessing the transcriptions from the selected specialties. The tidytext package is used to tokenize the free text and remove stop words. The following steps are performed:
 
 Tokenization: The unnest_tokens function is used to tokenize the transcriptions into words. The resulting tokens are stored in the word column.
+
 Cleaning: Non-alphanumeric characters are removed from the tokens using str_replace_all function.
+
 Filtering: Tokens containing numbers are filtered out using the filter function with the str_detect function.
+
 Stop word removal: Stop words, such as "the" and "of," are removed using the anti_join function with the stop_words list.
+
 Grouping and summarizing: The tokens are grouped by note_id, and the tokens for each note are combined into a single string using summarise and paste functions.
+
 Joining: The preprocessed data is joined back with the original dataset using the left_join function.
-Token Analysis
-The analysis involves examining the unique tokens (words and bigrams) present in the transcriptions of each specialty. The distinct and summarise functions from dplyr are used to calculate the counts of unique tokens.
+
 
 ## Token Frequency Visualization
 To visualize the distribution of token frequencies, scatter plots are created using ggplot2 package. Separate plots are generated for unigram tokens (words) and bigram tokens (words occurring in pairs).
